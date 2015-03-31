@@ -14,13 +14,14 @@ module.exports = {
   messages: {
 
     get: function (req, res) {
-    	var params = 
+    	var params = {req.body.username, req.body.text, req.body.}
     	models.exports.messages.get();
     	res.writeHead(headers, 200);
     }, // a function which handles a get request for all messages
 
     post: function (req, res) {
-    	var params = {req.params.username, req.params.text, req.params.roomname};
+    	var params = {req.body.username, req.body.text, req.body.roomname};
+    	models.exports.messages.post();
     	models.exports.messages.post();
     	res.writeHead(headers, 200);
     } // a function which handles posting a message to the database
@@ -29,12 +30,14 @@ module.exports = {
   users: {
     // Ditto as above
     get: function (req, res) {
+    	var params = {req.body.username};
     	models.exports.users.get();
     	res.writeHead(headers, 200);
     },
 
     post: function (req, res) {
-    	models.exports.users.get();
+    	var params = {req.body.username};
+    	models.exports.users.post();
     	res.writeHead(headers, 200);
     }
   }
